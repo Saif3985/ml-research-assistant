@@ -5,6 +5,12 @@ AI-powered RAG system for exploring 5,000+ ML/AI research papers from ArXiv with
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 
+
+## Demo
+
+![Chat Interface](Screen%20shots/chat_interface.png)
+
+
 ## Features
 
 -  *Natural Language Queries** - Ask questions across 5,000+ papers in plain English
