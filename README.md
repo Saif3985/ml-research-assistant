@@ -7,12 +7,11 @@ AI-powered RAG system for exploring 5,000+ ML/AI research papers from ArXiv with
 
 ## Features
 
-- 🎯 **Natural Language Queries** - Ask questions across 5,000+ papers in plain English
-- 📄 **PDF Upload** - Add your own papers with automatic title extraction
-- 📊 **Quality Scoring** - RAGAS metrics evaluate answer faithfulness and relevance
-- 🔍 **Hybrid Retrieval** - Combines vector search (BGE-large) + BM25 keyword search
-- 🎨 **Clean UI** - Gradio interface with source citations and quality badges
-- ⚡ **Optimized** - Dual GPU support, semantic caching, 4-bit quantization
+-  *Natural Language Queries** - Ask questions across 5,000+ papers in plain English
+-  **PDF Upload** - Add your own papers with automatic title extraction
+-  **Quality Scoring** - RAGAS metrics evaluate answer faithfulness and relevance
+-  **Hybrid Retrieval** - Combines vector search (BGE-large) + BM25 keyword search
+-  **Clean UI** - Gradio interface with source citations and quality badges
 
 ## Tech Stack
 
@@ -34,13 +33,6 @@ Query → Query Expansion → Hybrid Retrieval (Vector + BM25)
      → Context + Prompt → Mistral-7B → Answer + RAGAS Score
 ```
 
-## Quick Start
-
-### Kaggle (Recommended)
-1. Upload notebook to Kaggle
-2. Enable GPU: Settings → Accelerator → GPU T4 x2
-3. Run all cells in order (Phase 1 → 2 → 3)
-4. Access Gradio interface via public link
 
 ### Local Setup
 ```bash
@@ -48,18 +40,7 @@ git clone https://github.com/yourusername/ml-research-assistant
 cd ml-research-assistant
 pip install -r requirements.txt
 
-# Run phases sequentially
-python phase1_data_prep.py      # ~2 min
-python phase2_corrected.py       # ~8 min
-python phase3_final_complete.py  # Launches UI
 ```
-
-## Requirements
-
-- **GPU**: 2x T4 (30GB total) or 1x A100
-- **RAM**: 16GB+
-- **Storage**: 10GB
-- **Python**: 3.8+
 
 ## How It Works
 
@@ -90,18 +71,8 @@ python phase3_final_complete.py  # Launches UI
 ### Answer Generation
 - Mistral-7B generates cited answers
 - RAGAS evaluates: faithfulness, relevance, precision, recall
-- UI displays quality badge (🟢 Excellent / 🟡 Good / 🟠 Fair)
+- UI displays quality badge ( Excellent /  Good /  Fair)
 
-## Memory Optimization
-
-**Challenge**: Dual T4 GPUs (15GB each) must fit embeddings, reranker, and 7B generator.
-
-**Solution**:
-- Embeddings on CPU (saves 2GB GPU)
-- Reranker on GPU 0 (~2.2GB)
-- Mistral-7B balanced across GPU 0+1 (~3GB each)
-- 4-bit quantization (vs 16-bit baseline)
-- Total: ~9.9GB across 30GB available
 
 ## Example Usage
 
@@ -144,34 +115,14 @@ ml-research-assistant/
     └── quality.png
 ```
 
-## Challenges & Solutions
-
-### Challenge 1: Out of Memory
-**Problem**: Loading embeddings, reranker, and generator exceeded 15GB GPU.  
-**Solution**: Move embeddings to CPU, use 4-bit quantization, implement dual GPU with `device_map="balanced"`.
-
-### Challenge 2: Poor Retrieval Quality
-**Problem**: Vector search alone missed keyword matches.  
-**Solution**: Hybrid retrieval with weighted RRF fusion (60% semantic, 40% keyword).
-
-### Challenge 3: Redundant Results
-**Problem**: Multiple chunks from same paper in top results.  
-**Solution**: MMR diversity filter with 70% relevance, 30% diversity.
 
 ## Performance
 
-- **Answer Quality**: 0.85/1.0 average (RAGAS overall score)
-- **Retrieval Speed**: ~2s per query (with cache: ~0.3s)
-- **Indexing Speed**: 5,000 papers in ~8 minutes
-- **PDF Upload**: ~30s per paper
+- **Answer Quality**
+- **Retrieval Speed**
+- **Indexing Speed**
+- **PDF Upload**
 
-## Future Improvements
-
-- [ ] Add more datasets (100k+ papers)
-- [ ] Fine-tune embeddings on ArXiv data
-- [ ] Implement graph-based retrieval
-- [ ] Add citation network analysis
-- [ ] Multi-modal support (equations, figures)
 
 ## Citation
 
