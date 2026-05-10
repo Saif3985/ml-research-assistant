@@ -13,7 +13,7 @@ AI-powered RAG system for exploring 5,000+ ML/AI research papers from ArXiv with
 
 ## Features
 
--  *Natural Language Queries** - Ask questions across 5,000+ papers in plain English
+-  **Natural Language Queries** - Ask questions across 5,000+ papers in plain English
 -  **PDF Upload** - Add your own papers with automatic title extraction
 -  **Quality Scoring** - RAGAS metrics evaluate answer faithfulness and relevance
 -  **Hybrid Retrieval** - Combines vector search (BGE-large) + BM25 keyword search
