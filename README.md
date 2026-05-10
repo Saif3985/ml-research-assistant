@@ -10,6 +10,10 @@ AI-powered RAG system for exploring 5,000+ ML/AI research papers from ArXiv with
 
 ![Chat Interface](Screen%20shots/chat_interface.png)
 
+## System Architecture
+
+![Complete Architecture](screenshots/complete_architecture.png)
+
 
 ## Features
 
