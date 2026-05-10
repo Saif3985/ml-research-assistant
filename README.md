@@ -1,4 +1,4 @@
-# 🔬 ML Research Assistant
+#  ML Research Assistant
 
 AI-powered RAG system for exploring 5,000+ ML/AI research papers from ArXiv with citation-backed answers and automatic quality scoring.
 
