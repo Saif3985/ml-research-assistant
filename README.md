@@ -97,19 +97,6 @@ Upload PDF → Auto-extract title → Index chunks → Search alongside 5,000 pa
 Download CSV with timestamps, questions, answers, quality scores
 ```
 
-## Improvements Over Baseline
-
-| Feature | Baseline | Enhanced |
-|---------|----------|----------|
-| Embeddings | bge-small (384-dim) | bge-large (1024-dim) |
-| Chunking | Fixed 512 chars | Semantic (preserves structure) |
-| Retrieval | Vector only | Hybrid (vector + BM25) |
-| Fusion | Simple concat | Weighted RRF |
-| Diversity | None | MMR |
-| Evaluation | None | 4 RAGAS metrics |
-| Caching | None | Semantic similarity |
-
-**Result**: ~40% improvement in answer quality (measured by RAGAS scores)
 
 ## Project Structure
 
